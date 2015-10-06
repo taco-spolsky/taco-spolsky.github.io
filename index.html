@@ -3,4 +3,14 @@
   <button id="choose"style="width: 300px; height: 32px;">Get Taco's Recommendation</button>
   <h1 id="candidate"></h1>
 </body>
+<script>
+  CandidateChooser = {
+    name: "Taco Spolsky",
+    recommend: function() {
+      console.log(this.name);
+    }
+  }
+
+  CandidateChooser.recommend();
+</script>
 </html>
