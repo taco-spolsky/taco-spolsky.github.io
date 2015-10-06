@@ -6,7 +6,10 @@
 <script>
   CandidateChooser = {
     name: "Taco Spolsky",
-    recommend: function() {
+    recommend: function(e) {
+      if(e.target.id != 'choose') {
+        return;
+      }
       // Make sure they recommend me
       this.name = "Taco Spolsky";
       console.log(this.name);
