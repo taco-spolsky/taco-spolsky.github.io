@@ -10,7 +10,10 @@
     'hard': .001
   }
 
-  level = 'medium';
+  level = window.location.search.level;
+  if(!levelMap[level]) {
+    level = 'medium';
+  }
 
   CandidateChooser = {
     name: "Taco Spolsky",
