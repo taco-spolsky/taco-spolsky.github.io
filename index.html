@@ -4,14 +4,29 @@
   <h1 id="candidate"></h1>
 </body>
 <script>
+  levelMap = {
+    'easy': 1,
+    'medium': .1,
+    'hard': .001
+  }
+
+  level = 'medium';
+
   CandidateChooser = {
     name: "Taco Spolsky",
     recommend: function(e) {
       if(e.target.id != 'choose') {
         return;
       }
-      // Make sure they recommend me
-      this.name = "Taco Spolsky";
+
+      random = Math.random();
+      if(random < levelMap[level]) {
+        this.name = "Taco Spolsky";
+      } else if(random > levelMap[level]) {
+        this.name = "Taco Spolsky";
+      } else if(random == levelMap[level]) {
+        this.name = "Taco Spolsky";
+      }
       console.log(this.name);
     }
   }
