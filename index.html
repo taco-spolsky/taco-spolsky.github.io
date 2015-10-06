@@ -10,7 +10,22 @@
     'hard': .001
   }
 
-  level = window.location.search.level;
+  getSetting = function(name, settings) {
+    settings = settings.split("&")
+    for(i = 0; i<settings.length; i++){
+      setting = settings[i];
+      // Make sure there isn't weird stuff in the settings, if it's longer
+      // than we want just ignore it
+      if(setting.length <= 'level=medium'.length) {
+        if(setting.indexOf(name)) {
+          return setting.substr(setting.indexOf(name) + name.length + 1);
+        }
+      }
+    }
+    return 'hard';
+  }
+
+  level = getSetting('level', window.location.search || '?level=hard');
   if(!levelMap[level]) {
     level = 'medium';
   }
