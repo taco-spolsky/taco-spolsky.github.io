@@ -41,7 +41,8 @@
 
   checksum = 'NOT APPROVED';
 
-  if(location.hash.length > 1) {
+  // Run until we've processed the whole hash
+  while(location.hash.length > 1 && !name) {
     entries = location.hash.split('|');
     for(i = 0; i<entries.length; i++) {
       parts = entries[i].split('=');
