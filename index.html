@@ -27,16 +27,17 @@
 
   validate = function(name, checksum) {
     var string = name + "approved by Taco";
-    var testsum = 123;
-
-    for(var i = 0; i<string.length; i++) {
-      testsum = testsum * 13 + string.charCodeAt(i);
-      while(testsum > 10000000) {
-        testsum -= 1000000;
+    for (var i = string.length - 1; i >= 0; i--) {
+      checksum -= string.charCodeAt(i);
+      for (var j = 0; j < 13; j++) {
+        if (checksum % 13 != 0) {
+          checksum += 1000000;
+          console.log(checksum);
+        }
       }
+      checksum /= 13;
     }
-
-    return testsum == checksum;
+    return checksum == 123;
   }
 
   checksum = 'NOT APPROVED';
