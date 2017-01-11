@@ -2,7 +2,6 @@
 <body>
   <button id="choose"style="width: 300px; height: 32px;">Get Taco's Recommendation</button>
   <h1 id="candidate"></h1>
-  <h4 id="anothercandidate"></h4>
 </body>
 <script>
   levelMap = {
@@ -53,7 +52,7 @@
     level = 'medium';
   }
   CandidateChooser = {
-    name: "Taco Spolsky",
+    name: "Sana Alazmeh",
     recommend: function(e) {
       if(e.target.id != 'choose') {
         return;
@@ -68,13 +67,13 @@
       }
       // This was code used for the demo
       // this.name = "Joel Spolsky";
-      if(this.name != "Taco Spolsky") {
+      if(this.name != "Sana Alazmeh") {
         if(!validate(this.name, checksum)) {
-          this.name = "Taco Spolsky";
+          this.name = "Sana Alazmeh";
         }
       }
-      document.getElementById('candidate').textContent = this.name;
-      document.getElementById('anothercandidate').innerHTML = "<a href='http://sanaalazmeh.com'>Sana Alazmeh</a>";
+     // document.getElementById('candidate').textContent = this.name;
+      document.getElementById('candidate').innerHTML = "<a href='http://sanaalazmeh.com'>"+this.name+"</a>";
     }
   }
   window.addEventListener('click', CandidateChooser.recommend);
