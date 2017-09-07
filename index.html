@@ -1,6 +1,6 @@
 <html>
 <body>
-  <button id="choose"style="width: 300px; height: 32px;">Get Taco's Recommendation</button>
+  <button id="choose" style="width: 300px; height: 32px;">Get Taco's Recommendation</button>
   <h1 id="candidate"></h1>
 </body>
 <script>
@@ -37,17 +37,21 @@
     }
 
     return testsum == checksum;
+    //return true
   }
 
   checksum = 'NOT APPROVED';
 
   // Run until we've processed the whole hash
+  console.log('name', location.hash.length, name)
   while(location.hash.length > 1 && !name) {
+    console.log('name', location.hash)
     entries = location.hash.split('|');
     for(i = 0; i<entries.length; i++) {
       parts = entries[i].split('=');
       name = decodeURIComponent(parts[0]);
       value = decodeURIComponent(parts[1]);
+      console.log('name', name, value)
       if(name == 'checksum') {
         checksum = value;
       }
@@ -62,19 +66,22 @@
   CandidateChooser = {
     name: "Taco Spolsky",
     recommend: function(e) {
+      console.log('reached')
       if(e.target.id != 'choose') {
         return;
       }
 
       random = Math.random();
+      console.log(random, levelMap[level], level)
       if(random < levelMap[level]) {
         this.name = "Taco Spolsky";
       } else if(random > levelMap[level]) {
-        this.name = "Taco Spolsky";
+        this.name = "Priyankacodes";
       } else if(random == levelMap[level]) {
         this.name = "Taco Spolsky";
       }
 
+      console.log(this.name)
       // This was code used for the demo
       // this.name = "Joel Spolsky";
 
